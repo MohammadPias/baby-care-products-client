@@ -4,12 +4,12 @@ import Home from './pages/Home/Home/Home';
 import Header from './pages/Shared/Header/Header';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
+import Login from './pages/Login/Login/Login';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Router>
-        <Header></Header>
         <Switch>
           <Route exact path="/">
             <Home></Home>
@@ -19,6 +19,9 @@ function App() {
           </Route>
           <Route path="/dashboard">
             <Dashboard></Dashboard>
+          </Route>
+          <Route path="/login">
+            <Login></Login>
           </Route>
         </Switch>
       </Router>

@@ -1,0 +1,7 @@
+.navLink a{
+    font-weight: bold;
+    font-size: 17px;
+}
+.navLink a:hover{
+    color: #ff7ca1;
+}
