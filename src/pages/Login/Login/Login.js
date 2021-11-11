@@ -16,7 +16,7 @@ const Login = () => {
     const history = useHistory();
     const location = useLocation();
     const destination = location?.state?.from || '/home';
-    const { user, handleGoogleSignin, handleLogin } = useAuth();
+    const { error, loding, handleGoogleSignin, handleLogin } = useAuth();
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         console.log(data.email, data.password)
@@ -37,10 +37,12 @@ const Login = () => {
                         <br />
                         <input className="btn-custom w-100 mb-3 p-2 rounded" type="submit" />
                     </form>
-                    <div className="d-flex justify-content-center"><Spinner animation="border" /></div>
-                    <Alert className="text-center" variant={'success'}>
-                        Login successful !!
-                    </Alert>
+                    {loding &&
+                        <div className="d-flex justify-content-center"><Spinner animation="border" /></div>}
+                    {error &&
+                        <Alert className="text-center" variant={'danger'}>
+                            {error}
+                        </Alert>}
                     <div className="text-center">
                         <Link to="/register">Don't have an account? Register.</Link>
                     </div>

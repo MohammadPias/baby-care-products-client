@@ -12,7 +12,7 @@ const bg = {
 }
 
 const Register = () => {
-    const { handleSignup } = useAuth();
+    const { error, loding, handleSignup, handleGoogleSignin } = useAuth();
     const { register, handleSubmit } = useForm();
     const history = useHistory();
     const onSubmit = data => {
@@ -43,15 +43,17 @@ const Register = () => {
                         <br />
                         <input className="btn-custom w-100 mb-3 p-2 rounded" type="submit" />
                     </form>
-                    <div className="d-flex justify-content-center"><Spinner animation="border" /></div>
-                    <Alert className="text-center" variant={'danger'}>
-                        Login successful !!
-                    </Alert>
+                    {loding &&
+                        <div className="d-flex justify-content-center"><Spinner animation="border" /></div>}
+                    {error &&
+                        <Alert className="text-center" variant={'danger'}>
+                            {error}
+                        </Alert>}
                     <div className="text-center">
                         <Link to="/login">Already have an account? Login.</Link>
                     </div>
                     <br />
-                    <Button className="btn-custom w-100"><i class="fab fa-google"></i>   Continue With google</Button>
+                    <Button onClick={handleGoogleSignin} className="btn-custom w-100"><i class="fab fa-google"></i>   Continue With google</Button>
                 </div>
             </Container>
         </div>
