@@ -1,7 +1,21 @@
-.navLink a{
+
+.navLinks{
     font-weight: bold;
     font-size: 17px;
+    display: inline-block;
+    padding: 8px 30px;
 }
-.navLink a:hover{
-    color: #ff7ca1;
+.navLinks:hover{
+    background-color: #ff7ca1;
+    color: white;
+    border-radius: 5px;
+}
+.user-image{
+    width: 40px;
+    height: 40px;
+}
+.user-image img{
+    width: 100%;
+    overflow: hidden;
+    border-radius: 50%;
 }

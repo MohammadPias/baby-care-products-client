@@ -1,10 +1,15 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../../../images/logo.svg';
+import userImage from '../../../images/user.jpg'
 import './NavTitle.css'
+import useAuth from '../../Context/useAuth';
 
 const NavTitle = () => {
+    const { user, handleSignOut } = useAuth();
+    console.log(user)
+    console.log(user?.photoURL === null)
     return (
         <div>
             <Navbar bg="transparent" collapseOnSelect expand="md">
@@ -21,9 +26,19 @@ const NavTitle = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto navLink">
-                            <Nav.Link as={Link} to="/home">Home</Nav.Link>
-                            <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
-                            <Nav.Link as={Link} to="/login" >Login</Nav.Link>
+                            <Nav.Link className="navLinks" as={Link} to="/home">Home</Nav.Link>
+                            <Nav.Link className="navLinks" as={Link} to="/dashboard">Dashboard</Nav.Link>
+                            <Nav.Link className="navLinks" as={Link} to="/addProduct">Add Product</Nav.Link>
+                            {!user?.email ?
+                                <Nav.Link className="navLinks" as={Link} to="/login" >Login</Nav.Link>
+
+                                : <Button onClick={handleSignOut} className="btn-custom rounded-pill">Sign Out</Button>}
+                            {user?.email &&
+                                <Nav.Link as={Link} to="#">Hey! {user?.displayName?.split(" ")[0]}</Nav.Link>}
+                            {user?.photoURL === null && user?.email ?
+                                <div className="user-image"><img src={userImage} alt="" /></div>
+                                :
+                                <div className="user-image"><img src={user?.photoURL} alt="" /></div>}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

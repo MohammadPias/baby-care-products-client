@@ -5,26 +5,36 @@ import Header from './pages/Shared/Header/Header';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 import Login from './pages/Login/Login/Login';
+import Register from './pages/Register/Register';
+import AuthProvider from './pages/Context/AuthProvider';
 
 function App() {
   return (
     <div>
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route path="/home">
-            <Home></Home>
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard></Dashboard>
-          </Route>
-          <Route path="/login">
-            <Login></Login>
-          </Route>
-        </Switch>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
+            <Route path="/home">
+              <Home></Home>
+            </Route>
+            <Route path="/dashboard">
+              <Dashboard></Dashboard>
+            </Route>
+            <Route path="/login">
+              <Login></Login>
+            </Route>
+            <Route path="/register">
+              <Register></Register>
+            </Route>
+            <Route path="/addProduct">
+              <Register></Register>
+            </Route>
+          </Switch>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }

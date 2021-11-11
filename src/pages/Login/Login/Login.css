@@ -1,0 +1,16 @@
+.form-container{
+   display: flex;
+   justify-content: center;
+   align-items: center; 
+   height: 80vh;
+}
+.form-content{
+    width: 60%;
+}
+.form-input{
+    border : 1px solid grey;
+    border-radius: 4px;
+}
+.form-input:focus{
+    outline : 1px solid grey;
+}
