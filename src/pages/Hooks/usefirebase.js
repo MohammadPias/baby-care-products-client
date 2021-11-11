@@ -6,20 +6,20 @@ initializeFirebase();
 const useFirebase = () => {
     const [user, setUser] = useState([]);
     const [error, setError] = useState('');
-    const [loding, setLoding] = useState(false);
+    const [loding, setLoding] = useState(true);
 
     const auth = getAuth();
     const googoleProvider = new GoogleAuthProvider();
 
     // Google Sign in setup
-    const handleGoogleSignin = (history) => {
+    const handleGoogleSignin = (history, destination) => {
         setLoding(true);
         signInWithPopup(auth, googoleProvider)
             .then(result => {
                 setUser(result.user);
                 const user = { displayName: result.user.displayName, email: result.user.email };
                 saveUser(user, 'PUT')
-                history.push('/home');
+                history.push(destination);
             })
             .catch(error => setError(error.message))
             .finally(() => setLoding(false))
@@ -47,12 +47,12 @@ const useFirebase = () => {
             .finally(() => setLoding(false))
     };
     // Email Password login setup
-    const handleLogin = (email, password, history) => {
+    const handleLogin = (email, password, history, destination) => {
         setLoding(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setUser(userCredential.user);
-                history.push('/home');
+                history.push(destination);
             })
             .catch((error) => {
                 setError(error.message)

@@ -15,15 +15,15 @@ const bg = {
 const Login = () => {
     const history = useHistory();
     const location = useLocation();
-    // const destination = location?.state?.from || '/home';
+    const destination = location?.state?.from || '/home';
     const { user, handleGoogleSignin, handleLogin } = useAuth();
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         console.log(data.email, data.password)
-        handleLogin(data.email, data.password, history)
+        handleLogin(data.email, data.password, history, destination)
     };
     const handleGoogleLogin = () => {
-        handleGoogleSignin(history)
+        handleGoogleSignin(history, destination)
     }
     return (
         <div style={bg}>

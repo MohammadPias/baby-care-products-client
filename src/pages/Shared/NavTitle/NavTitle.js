@@ -8,8 +8,6 @@ import useAuth from '../../Context/useAuth';
 
 const NavTitle = () => {
     const { user, handleSignOut } = useAuth();
-    console.log(user)
-    console.log(user?.photoURL === null)
     return (
         <div>
             <Navbar bg="transparent" collapseOnSelect expand="md">
