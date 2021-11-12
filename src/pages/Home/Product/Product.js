@@ -15,7 +15,7 @@ const Product = ({ product }) => {
                         {info}
                     </Card.Text>
                     <div className="d-flex justify-content-between align-items-center">
-                        <h6>Price: {product.price}</h6>
+                        <h6>Price: ${product.price}</h6>
                         <Rating
                             initialRating={product?.rating}
                             readonly

@@ -14,12 +14,13 @@ import ManageOrders from '../ManageOrders/ManageOrders';
 import useAuth from '../../Context/useAuth';
 import userImage from '../../../images/user.jpg'
 import AddProduct from '../AddProduct/AddProduct';
+import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 
 
 
 
 const Dashboard = () => {
-    const { user, handleSignOut } = useAuth();
+    const { user, admin, handleSignOut } = useAuth();
     let { path, url } = useRouteMatch();
     const [display, setDisplay] = useState({});
     const displayBlock = { display: 'block' };
@@ -30,6 +31,7 @@ const Dashboard = () => {
     const btnOpen = () => {
         setDisplay(displayBlock);
     };
+    console.log(admin)
     return (
         <div>
             <div className="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left bg" style={display} id="mySidebar">
@@ -39,8 +41,8 @@ const Dashboard = () => {
                     <div style={{ height: '120px', width: '120px', padding: '15px', margin: 'auto' }}>
                         <img style={{ width: '100%', borderRadius: '50%' }} src={user?.photoURL === null ? userImage : user?.photoURL} alt="" />
                     </div>
-                    <h6 className="text-center fw-bold my-0">{user?.displayName}</h6>
-                    <p className="text-center my-0">admin</p>
+                    <h6 className="text-center fw-bold">{user?.displayName}</h6>
+                    {admin && <p className="text-center fw-bold text-white bg-success d-inline px-3 py-1 ms-5 rounded-pill">admin</p>}
                 </div>
 
                 <Link to="/home" className="w3-bar-item w3-button side-link">
@@ -67,24 +69,28 @@ const Dashboard = () => {
                         <h6 className="ms-4">Pay</h6>
                     </div>
                 </Link>
-                <Link to={`${url}/makeAdmin`} className="w3-bar-item w3-button side-link">
-                    <div className="d-flex align-items-center">
-                        <i className="fas fa-user-shield"></i>
-                        <h6 className="ms-4">Make Admin</h6>
+                {admin &&
+                    <div>
+                        <Link to={`${url}/makeAdmin`} className="w3-bar-item w3-button side-link">
+                            <div className="d-flex align-items-center">
+                                <i className="fas fa-user-shield"></i>
+                                <h6 className="ms-4">Make Admin</h6>
+                            </div>
+                        </Link>
+                        <Link to={`${url}/manageOrders`} className="w3-bar-item w3-button side-link">
+                            <div className="d-flex align-items-center">
+                                <i className="fas fa-cogs"></i>
+                                <h6 className="ms-4">Manage Orders</h6>
+                            </div>
+                        </Link>
+                        <Link to={`${url}/addProduct`} className="w3-bar-item w3-button side-link">
+                            <div className="d-flex align-items-center">
+                                <i className="fas fa-plus-circle"></i>
+                                <h6 className="ms-4">Add Product</h6>
+                            </div>
+                        </Link>
                     </div>
-                </Link>
-                <Link to={`${url}/manageOrders`} className="w3-bar-item w3-button side-link">
-                    <div className="d-flex align-items-center">
-                        <i className="fas fa-cogs"></i>
-                        <h6 className="ms-4">Manage Orders</h6>
-                    </div>
-                </Link>
-                <Link to={`${url}/addProduct`} className="w3-bar-item w3-button side-link">
-                    <div className="d-flex align-items-center">
-                        <i className="fas fa-plus-circle"></i>
-                        <h6 className="ms-4">Add Product</h6>
-                    </div>
-                </Link>
+                }
                 <Link to="#" className="w3-bar-item w3-button side-link">
                     <div className="d-flex align-items-center">
                         <i className="fas fa-sign-out-alt"></i>
@@ -112,15 +118,15 @@ const Dashboard = () => {
                         <Route path={`${path}/payment`}>
                             <Pay></Pay>
                         </Route>
-                        <Route path={`${path}/makeAdmin`}>
+                        <AdminRoute path={`${path}/makeAdmin`}>
                             <MakeAdmin></MakeAdmin>
-                        </Route>
-                        <Route path={`${path}/manageOrders`}>
+                        </AdminRoute>
+                        <AdminRoute path={`${path}/manageOrders`}>
                             <ManageOrders></ManageOrders>
-                        </Route>
-                        <Route path={`${path}/addProduct`}>
+                        </AdminRoute>
+                        <AdminRoute path={`${path}/addProduct`}>
                             <AddProduct></AddProduct>
-                        </Route>
+                        </AdminRoute>
                     </Switch>
                 </div>
 

@@ -32,10 +32,10 @@ const MyOrders = () => {
         <div>
             <h4 className="text-center fw-bold">My Orders</h4>
             <div className="line mx-auto mb-3" style={{ borderBottom: '3px solid #ff7ca1', width: '8%' }}></div>
-            <Row xs={1} md={2} lg={4} className="gap-3">
+            <Row xs={1} md={3} lg={4} >
                 {orders?.map(order =>
                     <Col key={order._id}>
-                        <Card style={{ maxWidth: '370px', margin: 'auto' }}>
+                        <Card style={{ maxWidth: '370px', margin: 'auto', marginBottom: '25px' }}>
                             <Card.Body>
                                 <div style={{ height: '120px', width: '120px', padding: '15px', margin: 'auto' }}>
                                     <img style={{ width: '100%', borderRadius: '50%', border: '1px solid grey', padding: '5px' }} src={order?.product?.img} alt="" />
