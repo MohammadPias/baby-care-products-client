@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
-import banner2 from '../../images/banner2.png'
+import banner2 from '../../../images/banner2.png'
 
 const bg = {
     background: `url(${banner2})`,

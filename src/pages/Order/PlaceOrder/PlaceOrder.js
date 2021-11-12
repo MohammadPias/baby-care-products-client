@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import Rating from 'react-rating';
 import { useParams } from 'react-router';
 import useAuth from '../../Context/useAuth';
-import Pay from '../Pay/Pay';
+import Pay from '../../Dashboard/Pay/Pay';
 
 const PlaceOrder = () => {
     const [product, setProduct] = useState({});
@@ -12,7 +12,25 @@ const PlaceOrder = () => {
     const productId = useParams();
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        console.log(data)
+        const newData = {
+            product,
+            ...data,
+            displayName: user?.displayName,
+            email: user?.email,
+        };
+        console.log(newData)
+        fetch('http://localhost:5000/orders', {
+            method: "POST",
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(newData)
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result.insertedId) {
+                    alert('Your order is placed successfully');
+                    reset();
+                }
+            })
     };
     useEffect(() => {
         fetch(`http://localhost:5000/products/${productId.productId}`, {
@@ -27,8 +45,8 @@ const PlaceOrder = () => {
             <div style={{ width: '15%', borderBottom: '3px solid #ff7ca1', margin: 'auto' }}></div>
 
             <Row className="mt-5">
-                <Col xs={12} md={6}>
-                    <div style={{ backgroundColor: '#deeeff', padding: '25px', borderRadius: '8px' }}>
+                <Col xs={12} md={8}>
+                    <div style={{ backgroundColor: '#deeeff', padding: '25px', borderRadius: '8px', marginBottom: '25px' }}>
 
                         <Card style={{ minWidth: '18rem' }}>
                             <Card.Img variant="top" src={product.img} />
@@ -51,7 +69,7 @@ const PlaceOrder = () => {
 
                     </div>
                 </Col>
-                <Col xs={12} md={6}>
+                <Col xs={12} md={4}>
                     <div style={{ backgroundColor: '#deeeff', padding: '25px', borderRadius: '8px' }}>
                         <h4 className="text-center fw-bold">Shipping</h4>
                         <div className="line mx-auto" style={{ borderBottom: '3px solid #ff7ca1', width: '15%', marginBottom: '10px' }}></div>

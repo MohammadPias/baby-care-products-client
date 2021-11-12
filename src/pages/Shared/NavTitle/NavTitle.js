@@ -26,7 +26,6 @@ const NavTitle = () => {
                         <Nav className="ms-auto navLink">
                             <Nav.Link className="navLinks" as={Link} to="/home">Home</Nav.Link>
                             <Nav.Link className="navLinks" as={Link} to="/dashboard">Dashboard</Nav.Link>
-                            <Nav.Link className="navLinks" as={Link} to="/addProduct">Add Product</Nav.Link>
                             <Nav.Link className="navLinks" as={Link} to="/products">Products</Nav.Link>
                             {!user?.email ?
                                 <Nav.Link className="navLinks" as={Link} to="/login" >Login</Nav.Link>
