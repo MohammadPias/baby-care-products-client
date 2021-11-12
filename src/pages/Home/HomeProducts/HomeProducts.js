@@ -1,5 +1,7 @@
 import React from 'react';
-import { Card, Col, Container, Row, Spinner } from 'react-bootstrap';
+import { Button, Card, Col, Container, Row, Spinner } from 'react-bootstrap';
+import Rating from 'react-rating';
+import { Link } from 'react-router-dom';
 import useAuth from '../../Context/useAuth';
 import useProducts from '../../Hooks/useProducts';
 
@@ -25,6 +27,16 @@ const HomeProducts = () => {
                                         <Card.Text>
                                             {product.info}
                                         </Card.Text>
+                                        <div className="d-flex justify-content-between align-items-center">
+                                            <h6>Price: {product.price}</h6>
+                                            <Rating
+                                                initialRating={product?.rating}
+                                                readonly
+                                                emptySymbol="fa fa-star-o fa-x rating-color"
+                                                fullSymbol="fa fa-star fa-x rating-color"
+                                            />
+                                        </div>
+                                        <Link to={`/order/${product._id}`}><Button className="btn-custom rounded-pill w-50 mt-3 mb-3">Purchase</Button></Link>
                                     </Card.Body>
                                 </Card>
                             </Col>

@@ -10,6 +10,7 @@ import AuthProvider from './pages/Context/AuthProvider';
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 import AddProduct from './pages/AddProduct/AddProduct';
 import Products from './pages/Home/Products/Products';
+import PlaceOrder from './pages/Order/PlaceOrder/PlaceOrder';
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
             </Route>
             <Route path="/products">
               <Products></Products>
+            </Route>
+            <Route path="/order/:productId">
+              <PlaceOrder></PlaceOrder>
             </Route>
           </Switch>
         </Router>
