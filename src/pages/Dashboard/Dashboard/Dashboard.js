@@ -15,6 +15,7 @@ import useAuth from '../../Context/useAuth';
 import userImage from '../../../images/user.jpg'
 import AddProduct from '../AddProduct/AddProduct';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
+import { Button } from 'react-bootstrap';
 
 
 
@@ -42,7 +43,9 @@ const Dashboard = () => {
                         <img style={{ width: '100%', borderRadius: '50%' }} src={user?.photoURL === null ? userImage : user?.photoURL} alt="" />
                     </div>
                     <h6 className="text-center fw-bold">{user?.displayName}</h6>
-                    {admin && <p className="text-center fw-bold text-white bg-success d-inline px-3 py-1 ms-5 rounded-pill">admin</p>}
+                    {admin && <div className="d-flex justify-content-center"><Button variant="success" size="sm" className="rounded-pill" disabled>
+                        Admin
+                    </Button></div>}
                 </div>
 
                 <Link to="/home" className="w3-bar-item w3-button side-link">

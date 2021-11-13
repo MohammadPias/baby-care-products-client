@@ -3,8 +3,7 @@ import { Button, Table } from 'react-bootstrap';
 
 const ManageOrders = () => {
     const [orders, setOrders] = useState([]);
-    const [change, setChange] = useState(false);
-    console.log(orders)
+    const [change, setChange] = useState('');
 
     useEffect(() => {
         fetch('http://localhost:5000/orders')
@@ -31,7 +30,7 @@ const ManageOrders = () => {
         console.log(id)
         fetch(`http://localhost:5000/orders/${id}`, { method: 'PUT' })
             .then(res => res.json())
-            .then(result => setChange(true))
+            .then(result => setChange(id))
 
     }
     return (

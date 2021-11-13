@@ -36,7 +36,7 @@ const Reviews = () => {
     return (
         <Container>
             <h6 className="text-center fw-bold mb-2 mt-5">Comments</h6>
-            <h2 className="text-center fw-bold my-2">Our Customers Says</h2>
+            <h2 className="text-center fw-bold my-2">Our Customers Say</h2>
             <div style={{ width: '15%', borderBottom: '3px solid #ff7ca1', margin: 'auto' }}></div>
 
             <Row className="mt-5">

@@ -17,6 +17,7 @@ const useFirebase = () => {
         setLoding(true);
         signInWithPopup(auth, googoleProvider)
             .then(result => {
+                setError('');
                 setUser(result.user);
                 const user = { displayName: result.user.displayName, email: result.user.email };
                 saveUser(user, 'PUT')
@@ -38,6 +39,7 @@ const useFirebase = () => {
                 }).catch((error) => {
 
                 });
+                setError('');
                 const user = { displayName: name, email: email }
                 saveUser(user, 'POST');
                 history.push('/login');
@@ -54,6 +56,7 @@ const useFirebase = () => {
             .then((userCredential) => {
                 setUser(userCredential.user);
                 history.push(destination);
+                setError('');
             })
             .catch((error) => {
                 setError(error.message)
