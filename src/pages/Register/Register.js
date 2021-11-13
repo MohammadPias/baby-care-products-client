@@ -53,7 +53,7 @@ const Register = () => {
                         <Link to="/login">Already have an account? Login.</Link>
                     </div>
                     <br />
-                    <Button onClick={handleGoogleSignin} className="btn-custom w-100"><i class="fab fa-google"></i>   Continue With google</Button>
+                    <Button onClick={handleGoogleSignin} className="btn-custom w-100"><i className="fab fa-google"></i>   Continue With google</Button>
                 </div>
             </Container>
         </div>

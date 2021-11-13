@@ -18,7 +18,7 @@ const EventProducts = () => {
 
                     <Row xs={1} md={3} className="g-4 mt-4">
                         {products?.slice(6, 12).map(product =>
-                            <Col>
+                            <Col key={product._id}>
                                 <Card>
                                     <Card.Img variant="top" src={product?.img} />
                                     <Card.Body>
