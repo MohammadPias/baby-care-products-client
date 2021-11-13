@@ -39,8 +39,8 @@ const Reviews = () => {
             <h2 className="text-center fw-bold my-2">Our Customers Say</h2>
             <div style={{ width: '15%', borderBottom: '3px solid #ff7ca1', margin: 'auto' }}></div>
 
-            <Row className="mt-5">
-                <Col xs={12} md={6} lg={8}>
+            <Row className="mt-3">
+                <Col xs={12} md={6} lg={8} className="my-2">
                     <div style={{ backgroundColor: '#deeeff', padding: '25px', borderRadius: '8px' }}>
                         <Row sm={1} lg={2} className="g-4">
                             {reviews?.map(review =>
@@ -70,7 +70,7 @@ const Reviews = () => {
                         </Row>
                     </div>
                 </Col>
-                <Col xs={12} md={6} lg={4}>
+                <Col xs={12} md={6} lg={4} className="my-2">
                     <div style={{ backgroundColor: '#deeeff', padding: '25px', borderRadius: '8px' }}>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <input placeholder="Your name" className="w-100 mb-3 p-1 form-input" {...register("name", { required: true, maxLength: 20 })} />

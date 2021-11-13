@@ -1,0 +1,21 @@
+.footer-container{
+    width: 100%;
+    min-height: 250px;
+    padding: 50px;
+}
+.footer-bg{
+    background-color: #06303b;
+}
+.logo img{
+    width: 50%;
+}
+.footer-container a {
+    text-decoration: none;
+    color: lightgray;
+}
+.font-style{
+    color: white;
+    font-size: 30px;
+    margin-right: 15px;
+    margin-top: 10px;
+}

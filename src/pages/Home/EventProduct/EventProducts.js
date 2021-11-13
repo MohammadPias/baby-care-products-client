@@ -28,7 +28,7 @@ const EventProducts = () => {
                                         </Card.Text>
                                         <div className="d-flex justify-content-between align-items-center">
                                             <h6>Price: $<del>{product?.price}</del></h6>
-                                            <h6>Price: ${product?.price - product?.price * 30 / 100}</h6>
+                                            <h6>Offer Price: ${product?.price - product?.price * 30 / 100}</h6>
 
                                         </div>
                                         <p>Rating: <Rating

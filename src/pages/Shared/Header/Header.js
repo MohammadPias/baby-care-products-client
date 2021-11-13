@@ -6,7 +6,7 @@ import NavTitle from '../NavTitle/NavTitle';
 const Header = () => {
     const homeBanner = {
         background: `url(${topBanner})`,
-        height: '100vh'
+        minHeight: '500px'
     }
     return (
         <div style={homeBanner}>
