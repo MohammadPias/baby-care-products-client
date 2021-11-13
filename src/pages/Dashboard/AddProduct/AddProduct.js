@@ -27,7 +27,7 @@ const AddProduct = () => {
     return (
         <div style={bg}>
             <Container className="form-container">
-                <div className="form-content bg-white p-5 rounded-3 shadow-sm mt-5">
+                <div style={{ minWidth: '370px' }} className="form-content bg-white p-5 rounded-3 shadow-sm mt-5">
                     <h3 className="text-center fw-bold mb-3">Add Product</h3>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <input className="w-100 mb-3 p-1 form-input" placeholder="Product name" type="name" {...register("name", { required: true })} />
