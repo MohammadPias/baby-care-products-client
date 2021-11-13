@@ -19,7 +19,7 @@ const PlaceOrder = () => {
             email: user?.email,
         };
         console.log(newData)
-        fetch('http://localhost:5000/orders', {
+        fetch('https://cryptic-wildwood-10368.herokuapp.com/orders', {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(newData)
@@ -33,7 +33,7 @@ const PlaceOrder = () => {
             })
     };
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${productId.productId}`, {
+        fetch(`https://cryptic-wildwood-10368.herokuapp.com/products/${productId.productId}`, {
             method: "GET"
         })
             .then(res => res.json())

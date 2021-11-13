@@ -88,7 +88,7 @@ const useFirebase = () => {
 
     // Save user information to Database
     const saveUser = (user, method) => {
-        fetch('http://localhost:5000/users', {
+        fetch('https://cryptic-wildwood-10368.herokuapp.com/users', {
             method: method,
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(user)
@@ -100,7 +100,7 @@ const useFirebase = () => {
 
     // check admin
     useEffect(() => {
-        fetch(`http://localhost:5000/users/${user.email}`)
+        fetch(`https://cryptic-wildwood-10368.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
             .then(result => setAdmin(result.admin))
     }, [user?.email])

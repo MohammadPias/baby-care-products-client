@@ -12,7 +12,7 @@ const bg = {
 const MakeAdmin = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        fetch(`http://localhost:5000/users/${data.email}`, { method: 'PUT' })
+        fetch(`https://cryptic-wildwood-10368.herokuapp.com/users/${data.email}`, { method: 'PUT' })
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount) {

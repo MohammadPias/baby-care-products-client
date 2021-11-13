@@ -6,7 +6,7 @@ const ManageOrders = () => {
     const [change, setChange] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://cryptic-wildwood-10368.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [change]);
@@ -14,7 +14,7 @@ const ManageOrders = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm("Are you sure you want to delete?")
         if (proceed) {
-            fetch(`http://localhost:5000/orders/${id}`, { method: "DELETE" })
+            fetch(`https://cryptic-wildwood-10368.herokuapp.com/orders/${id}`, { method: "DELETE" })
                 .then(res => res.json())
                 .then(result => {
                     if (result.deletedCount === 1) {
@@ -28,7 +28,7 @@ const ManageOrders = () => {
     // Approve order
     const handleApprove = (id) => {
         console.log(id)
-        fetch(`http://localhost:5000/orders/${id}`, { method: 'PUT' })
+        fetch(`https://cryptic-wildwood-10368.herokuapp.com/orders/${id}`, { method: 'PUT' })
             .then(res => res.json())
             .then(result => setChange(id))
 

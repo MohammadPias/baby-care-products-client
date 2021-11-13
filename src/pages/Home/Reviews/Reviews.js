@@ -13,7 +13,7 @@ const Reviews = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         const newData = { ...data, photoURL: user?.photoURL }
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://cryptic-wildwood-10368.herokuapp.com/reviews', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(newData)
@@ -28,7 +28,7 @@ const Reviews = () => {
             });
     };
     useEffect(() => {
-        fetch('http://localhost:5000/reviews', { method: 'GET' })
+        fetch('https://cryptic-wildwood-10368.herokuapp.com/reviews', { method: 'GET' })
             .then(res => res.json())
             .then(data => setReviews(data));
     }, [isAdd]);

@@ -8,7 +8,7 @@ const MyOrders = () => {
     const email = user?.email;
     console.log(user)
     useEffect(() => {
-        fetch(`http://localhost:5000/orders/${email}`, { method: "GET" })
+        fetch(`https://cryptic-wildwood-10368.herokuapp.com/orders/${email}`, { method: "GET" })
             .then(res => res.json())
             .then(data => setOrders(data));
     }, []);
@@ -17,7 +17,7 @@ const MyOrders = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm("Are you sure you want to delete?")
         if (proceed) {
-            fetch(`http://localhost:5000/orders/${id}`, { method: "DELETE" })
+            fetch(`https://cryptic-wildwood-10368.herokuapp.com/orders/${id}`, { method: "DELETE" })
                 .then(res => res.json())
                 .then(result => {
                     if (result.deletedCount === 1) {
