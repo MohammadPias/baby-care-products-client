@@ -10,7 +10,8 @@ const useProducts = () => {
             })
     }, []);
     return {
-        products
+        products,
+        setProducts
     }
 };
 export default useProducts;

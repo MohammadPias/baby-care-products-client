@@ -28,7 +28,7 @@ const Login = () => {
     return (
         <div style={bg}>
             <Container className="form-container">
-                <div className="form-content bg-white p-5 rounded-3 shadow-sm mt-5">
+                <div style={{ minWidth: '370px' }} className="form-content bg-white p-5 rounded-3 shadow-sm mt-5">
                     <h3 className="text-center fw-bold mb-3">Log in</h3>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <input className="w-100 mb-3 p-1 form-input" placeholder="Your email" type="email" {...register("email", { required: true })} />

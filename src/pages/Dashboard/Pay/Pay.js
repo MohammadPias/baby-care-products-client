@@ -7,6 +7,7 @@ const Pay = ({ productName }) => {
     const { user } = useAuth();
     return (
         <div style={{ backgroundColor: '#deeeff', padding: '25px', borderRadius: '8px', margin: '25px auto', maxWidth: '370px' }}>
+            <h6 className="text-center text-danger fw-bold">Payment system is coming soon!!</h6>
             <h4 className="text-center fw-bold">Make Payment</h4>
             <div className="line mx-auto" style={{ borderBottom: '3px solid #ff7ca1', width: '25%', marginBottom: '10px' }}></div>
             <Form>
