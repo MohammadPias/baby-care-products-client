@@ -21,7 +21,7 @@ const useFirebase = () => {
                 setUser(result.user);
                 const user = { displayName: result.user.displayName, email: result.user.email };
                 saveUser(user, 'PUT')
-                history.push(destination);
+                history.replace(destination);
             })
             .catch(error => setError(error.message))
             .finally(() => setLoding(false))
@@ -42,7 +42,7 @@ const useFirebase = () => {
                 setError('');
                 const user = { displayName: name, email: email }
                 saveUser(user, 'POST');
-                history.push('/login');
+                history.replace('/login');
             })
             .catch((error) => {
                 setError(error.message);
@@ -55,7 +55,7 @@ const useFirebase = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setUser(userCredential.user);
-                history.push(destination);
+                history.replace(destination);
                 setError('');
             })
             .catch((error) => {
